@@ -1,0 +1,24 @@
+{
+  "name": "react-without-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SP7TECH/react-without-build.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SP7TECH/react-without-build/issues"
+  },
+  "homepage": "https://github.com/SP7TECH/react-without-build#readme",
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

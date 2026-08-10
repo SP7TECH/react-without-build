@@ -18,6 +18,54 @@ export default function Order() {
               <option value="big_meat">The Big Meat Pizza</option>
             </select>
           </div>
+
+          <div>
+            <label htmlFor="pizza-size">Pizza Size</label>
+            <div>
+              <span>
+                <input
+                  checked={pizzaSize === "S"}
+                  name="pizza-size"
+                  value="S"
+                  type="radio"
+                  id="pizza-s"
+                />
+                <label htmlFor="pizza-s">Small</label>
+              </span>
+
+              <span>
+                <input
+                  checked={pizzaSize === "M"}
+                  name="pizza-size"
+                  value="M"
+                  type="radio"
+                  id="pizza-s"
+                />
+                <label htmlFor="pizza-s">Medium</label>
+              </span>
+
+              <span>
+                <input
+                  checked={pizzaSize === "L"}
+                  name="pizza-size"
+                  value="L"
+                  type="radio"
+                  id="pizza-s"
+                />
+                <label htmlFor="pizza-s">Large</label>
+              </span>
+            </div>
+          </div>
+          <button type="submit">Add to Cart</button>
+        </div>
+
+        <div className="order-pizza">
+          <Pizza
+            name="Pepperoni"
+            description="Mozzarella Cheese, Pepperoni"
+            image="/public/pizzas/pepperoni.webp"
+          />
+          <p>$13.37</p>
         </div>
       </form>
     </div>

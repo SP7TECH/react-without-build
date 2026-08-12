@@ -23,7 +23,7 @@ export default function Order() {
 
   async function fetchPizzaTypes() {
     // fake loading
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const pizzaRes = await fetch("/api/pizzas");
     const pizzaJson = await pizzaRes.json();
@@ -104,7 +104,7 @@ export default function Order() {
             <Pizza
               name={selectedPizza.name}
               description={selectedPizza.description}
-              image="/public/pizzas/pepperoni.webp"
+              image={selectedPizza.image}
             />
             <p>{price}</p>
           </div>

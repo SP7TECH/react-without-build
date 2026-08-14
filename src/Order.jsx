@@ -19,6 +19,10 @@ export default function Order() {
     );
   }
 
+  useEffect(() => {
+    fetchPizzaTypes();
+  }, []);
+
   async function fetchPizzaTypes() {
     // fake loading
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -29,9 +33,22 @@ export default function Order() {
     setIsLoading(false);
   }
 
-  useEffect(() => {
-    fetchPizzaTypes();
-  }, []);
+  async function checkout() {
+    setIsLoading(true);
+
+    await fetch("/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cart,
+      }),
+    });
+
+    setCart([]);
+    setIsLoading(false);
+  }
 
   return (
     <div className="order-page">
@@ -119,7 +136,11 @@ export default function Order() {
         </form>
       </div>
 
-      {isLoading ? <h2>Loading...</h2> : <Cart cart={cart} />}
+      {isLoading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <Cart cart={cart} checkout={checkout} />
+      )}
     </div>
   );
 }

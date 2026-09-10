@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import getPastOrders from "../api/getPastOrders";
-import getPastOrder from "../api/getPastOrders";
+import getPastOrder from "../api/getPastOrder";
 import Modal from "../Modal";
 import { intl } from "../utils";
 
@@ -11,7 +11,7 @@ export const Route = createLazyFileRoute("/past")({
 });
 
 function PastOrdersRoute() {
-  const [focusedOrder, setFocusedOrder] = useState;
+  const [focusedOrder, setFocusedOrder] = useState();
   const [page, setPage] = useState(1);
 
   // Query for all past orders
@@ -50,7 +50,9 @@ function PastOrdersRoute() {
         <tbody>
           {data.map((order) => (
             <tr key={order.order_id}>
-              <td>{order.order_id}</td>
+              <button onClick={() => setFocusedOrder(order.order_id)}>
+                <td>{order.order_id}</td>
+              </button>
               <td>{order.date}</td>
               <td>{order.time}</td>
             </tr>
